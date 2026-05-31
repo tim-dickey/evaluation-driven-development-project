@@ -1,0 +1,40 @@
+{
+  "name": "happy-path-basic-story",
+  "description": "Valid story flows through Atlas, Dot, Gil, Dev, and Reed with required contract blocks.",
+  "input": {
+    "story": {
+      "id": "STORY-001",
+      "title": "User can reset password via email link",
+      "description": "As a user, I want to reset my password via a secure email link so that I can regain access.",
+      "acceptance_criteria": [
+        "User requests a reset using a registered email address.",
+        "System sends a one-time reset link that expires after 15 minutes.",
+        "User can set a new password that meets complexity rules.",
+        "Expired or reused links are rejected with a clear message."
+      ],
+      "constraints": [
+        "Use the existing email delivery service.",
+        "Do not reveal whether an email is registered during the request step."
+      ]
+    }
+  },
+  "expects": {
+    "dot": {
+      "story_id": "STORY-001",
+      "acceptance_criteria_min": 3,
+      "constraints_min": 1,
+      "open_questions_min": 0
+    },
+    "gil": {
+      "steps_min": 3
+    },
+    "dev": {
+      "tests_added": true,
+      "changes_min": 1
+    },
+    "reed": {
+      "status_in": ["approved", "changes-requested"],
+      "tech_debt_min": 0
+    }
+  }
+}

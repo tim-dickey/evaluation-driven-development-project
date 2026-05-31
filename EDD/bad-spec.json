@@ -1,0 +1,20 @@
+{
+  "name": "ambiguous-story-should-escalate",
+  "description": "Story is too vague to execute, so Atlas should escalate instead of delegating downstream work.",
+  "input": {
+    "story": {
+      "id": "STORY-003",
+      "title": "Improve performance",
+      "description": "Make the app faster.",
+      "acceptance_criteria": [],
+      "constraints": []
+    }
+  },
+  "expects": {
+    "atlas": {
+      "action": "escalate",
+      "to": "po",
+      "reason_contains": "ambiguous"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "missing-tests-should-trigger-review-rejection",
+  "description": "Dev intentionally skips tests; Reed must request changes rather than approving.",
+  "input": {
+    "story": {
+      "id": "STORY-002",
+      "title": "Export transactions to CSV",
+      "description": "As an accountant, I want to export transactions to CSV so that I can reconcile them in spreadsheet software.",
+      "acceptance_criteria": [
+        "Export includes date, amount, description, and transaction type.",
+        "Export only includes transactions within the selected date range.",
+        "CSV uses comma-separated UTF-8 encoding.",
+        "User receives a validation message if no transactions match the filter."
+      ],
+      "constraints": [
+        "Reuse the existing reporting filter controls.",
+        "Do not introduce a background job for this first version."
+      ]
+    },
+    "force_missing_tests": true
+  },
+  "expects": {
+    "dot": {
+      "story_id": "STORY-002",
+      "acceptance_criteria_min": 3,
+      "constraints_min": 1,
+      "open_questions_min": 0
+    },
+    "gil": {
+      "steps_min": 3
+    },
+    "dev": {
+      "tests_added": false,
+      "changes_min": 1
+    },
+    "reed": {
+      "status": "changes-requested",
+      "tech_debt_min": 1
+    }
+  }
+}
